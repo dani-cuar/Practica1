@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Practica1_InterfazUsuario2</string>
+    <string name="register">Formulario de registro</string>
+    <string name="name">Nombre</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="genre">Género</string>
+    <string name="female">Femenino</string>
+    <string name="male">Masculino</string>
+    <string name="hobbies">Hobbies</string>
+    <string name="paint">Dibujar</string>
+    <string name="sport">Deportes</string>
+    <string name="series">Series</string>
+    <string name="read">Leer</string>
+</resources>
