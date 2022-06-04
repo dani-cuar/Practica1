@@ -4,7 +4,7 @@
     <string name="name">Nombre</string>
     <string name="email">Correo electrónico</string>
     <string name="password">Contraseña</string>
-    <string name="confirm_password">Password</string>
+    <string name="confirm_password">Confirmar contraseña</string>
     <string name="genre">Género</string>
     <string name="female">Femenino</string>
     <string name="male">Masculino</string>
@@ -24,6 +24,7 @@
     <string name="msg_bad">Las contraseñas no coinciden</string>
     <string name="msg_date">Digite su fecha de nacimiento</string>
     <string name="info">Nombre: %s\nEmail: %s\nContraseña: %s\nConfirmar contraseña: %s\nGenero: %s\nPasatiempo: %s\nCiudad de nacimiento: %s\nFecha de nacimiento: %s\n </string>
+    <string name="register_1">Formulario de registro</string>
     <string-array name= "cities_list">
         <item>Medellín</item>
         <item>Bogotá</item>
