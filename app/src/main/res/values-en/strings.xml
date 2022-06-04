@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Practica1_InterfazUsuario2</string>
+    <string name="register">Registration form</string>
+    <string name="name">Name</string>
+    <string name="email">Mail address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="genre">Genre</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="hobbies">Hobbies</string>
+    <string name="paint">Paint</string>
+    <string name="sport">Sports</string>
+    <string name="series">Series</string>
+    <string name="read">Read</string>
+    <string name="born_date">Birthday</string>
+    <string name="date">day/Month/Year</string>
+    <string name="birth_place">Birthplace</string>
+    <string name="save">Save</string>
+    <string name="msg_name">Type your name</string>
+    <string name="msg_email">Type your email</string>
+    <string name="msg_password">Type your password</string>
+    <string name="msg_confirm">Confirm your password</string>
+    <string name="msg_bad">Password don´t match</string>
+    <string name="msg_date">Type your birthday</string>
+    <string name="info">Name: %s\nEmail: %s\nPassword: %s\nConfirm password: %s\nGenre: %s\nHobbies: %s\nCity of birth: %s\nBirthday: %s\n </string>
+    <string-array name= "cities_list">
+        <item>Medellín</item>
+        <item>Bogotá</item>
+        <item>Cali</item>
+        <item>Cartagena</item>
+    </string-array>
+</resources>

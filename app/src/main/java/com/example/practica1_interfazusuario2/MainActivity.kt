@@ -48,13 +48,13 @@ class MainActivity : Activity() {
                 if(nameEditText.text.toString().isEmpty())
                     Toast.makeText(this@MainActivity,getString(R.string.msg_name),Toast.LENGTH_SHORT).show()
 
-                if(emailEditText.toString().isEmpty())
+                if(emailEditText.text.toString().isEmpty())
                     Toast.makeText(this@MainActivity,getString(R.string.msg_email),Toast.LENGTH_SHORT).show()
 
-                if(passwordEditText.toString().isEmpty())
+                if(passwordEditText.text.toString().isEmpty())
                     Toast.makeText(this@MainActivity,getString(R.string.msg_password),Toast.LENGTH_SHORT).show()
 
-                if(confirmPasswordEditText.toString().isEmpty())
+                if(confirmPasswordEditText.text.toString().isEmpty())
                     Toast.makeText(this@MainActivity,getString(R.string.msg_confirm),Toast.LENGTH_SHORT).show()
 
                 val name = nameEditText.text.toString()
@@ -75,8 +75,12 @@ class MainActivity : Activity() {
                 if(seriesCheckBox4.isChecked) hobbies += getString(R.string.series) + " "
 
                 val borncity = placeBirthSpinner.selectedItem.toString()
+                val born_date = borndate
 
-                infotextView2.text = getString(R.string.info, name, email, password, confirmpassword, genre, hobbies, borncity, borndate)
+                if(born_date.isEmpty())
+                    Toast.makeText(this@MainActivity,getString(R.string.msg_date), Toast.LENGTH_SHORT).show()
+
+                infotextView2.text = getString(R.string.info, name, email, password, confirmpassword, genre, hobbies, borncity, born_date)
             }
         }
     }
