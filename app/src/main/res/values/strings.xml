@@ -12,4 +12,21 @@
     <string name="sport">Deportes</string>
     <string name="series">Series</string>
     <string name="read">Leer</string>
+    <string name="born_date">Fecha de Nacimiento</string>
+    <string name="date">día/Mes/Año</string>
+    <string name="birth_place">Lugar de nacimiento</string>
+    <string name="save">Guardar</string>
+    <string name="msg_name">Digite su nombre</string>
+    <string name="msg_email">Digite su email</string>
+    <string name="msg_password">Digite su contraseña</string>
+    <string name="msg_confirm">Confirme su contraseña</string>
+    <string name="msg_bad">Las contraseñas no coinciden</string>
+    <string name="info">Nombre: %s\nEmail: %s\nContraseña: %s\nConfirmar contraseña: %s\nGenero: %s\nPasatiempo: %s\nCiudad de nacimiento: %s\nFecha de nacimiento: %s\n </string>
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string-array name= "cities_list">
+        <item>Medellín</item>
+        <item>Bogotá</item>
+        <item>Cali</item>
+        <item>Cartagena</item>
+    </string-array>
 </resources>

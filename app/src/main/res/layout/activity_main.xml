@@ -33,7 +33,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="698dp">
+                    android:layout_height="1126dp">
 
                     <TextView
                         android:id="@+id/register_textView"
@@ -73,6 +73,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/email_text_input_layout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -87,12 +88,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/email"
-                            android:inputType="textEmailAddress" />
+                            android:inputType="textEmailAddress"
+                            android:textStyle="bold" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/password_text_input_layout"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
@@ -107,7 +109,29 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/password"
-                            android:inputType="textPassword" />
+                            android:inputType="textPassword"
+                            android:textStyle="bold" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/confirm_password_text_input_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:endIconMode="password_toggle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/password_text_input_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/confirm_password_edit__text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/confirm_password"
+                            android:inputType="textPassword"
+                            android:textStyle="bold" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <RadioGroup
@@ -125,13 +149,16 @@
                             android:id="@+id/female_radioButton3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/female" />
+                            android:checked="true"
+                            android:text="@string/female"
+                            android:textStyle="bold" />
 
                         <RadioButton
                             android:id="@+id/male_radioButton4"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/male" />
+                            android:text="@string/male"
+                            android:textStyle="bold" />
                     </RadioGroup>
 
                     <TextView
@@ -139,7 +166,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="100dp"
                         android:text="@string/genre"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -161,11 +188,11 @@
                         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
                     <LinearLayout
-                        android:layout_width="339dp"
-                        android:layout_height="0dp"
+                        android:id="@+id/linearLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -176,29 +203,109 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.5"
-                            android:text="@string/paint" />
+                            android:text="@string/paint"
+                            android:textStyle="bold" />
 
                         <CheckBox
                             android:id="@+id/sport_checkBox2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.5"
-                            android:text="@string/sport" />
+                            android:text="@string/sport"
+                            android:textStyle="bold" />
 
                         <CheckBox
                             android:id="@+id/read_checkBox3"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.5"
-                            android:text="@string/read" />
+                            android:text="@string/read"
+                            android:textStyle="bold" />
 
                         <CheckBox
                             android:id="@+id/series_checkBox4"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.5"
-                            android:text="@string/series" />
+                            android:text="@string/series"
+                            android:textStyle="bold" />
                     </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/born_date_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/born_date"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+                    <Button
+                        android:id="@+id/date_born_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/date"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/born_date_textView" />
+
+                    <TextView
+                        android:id="@+id/birth_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/birth_place"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/date_born_button" />
+
+                    <Spinner
+                        android:id="@+id/place_birth_spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:entries="@array/cities_list"
+                        android:minHeight="48dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/birth_textView" />
+
+                    <Button
+                        android:id="@+id/save_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/save"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/place_birth_spinner" />
+
+                    <TextView
+                        android:id="@+id/infotextView2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/save_button" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
