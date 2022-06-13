@@ -13,7 +13,9 @@ class MainActivity : Activity() {
 
     private lateinit var mainBinding: ActivityMainBinding
     private var borndate = ""
-    private val calendar = Calendar.getInstance()
+    private var bornDateChanged = false
+    private var calendar = Calendar.getInstance()
+    private var hobselected = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,7 @@ class MainActivity : Activity() {
             val sdf = SimpleDateFormat(format)
             borndate = sdf.format(calendar.time).toString()
             mainBinding.dateBornButton.text = borndate
+            bornDateChanged = true
         }
 
         with(mainBinding) {
@@ -69,10 +72,23 @@ class MainActivity : Activity() {
                 else getString(R.string.male)
 
                 var hobbies = ""
-                if(paintCheckBox.isChecked) hobbies += getString(R.string.paint) + " "
-                if(sportCheckBox2.isChecked) hobbies += getString(R.string.sport) + " "
-                if(readCheckBox3.isChecked) hobbies += getString(R.string.read) + " "
-                if(seriesCheckBox4.isChecked) hobbies += getString(R.string.series) + " "
+                if(paintCheckBox.isChecked) {
+                    hobbies += getString(R.string.paint) + " "
+                    hobselected = true
+                }
+                if(sportCheckBox2.isChecked){
+                    hobbies += getString(R.string.sport) + " "
+                    hobselected = true
+                }
+                if(readCheckBox3.isChecked){
+                    hobbies += getString(R.string.read) + " "
+                    hobselected = true
+                }
+                if(seriesCheckBox4.isChecked){
+                    hobbies += getString(R.string.series) + " "
+                    hobselected = true
+                }
+                if (! hobselected) Toast.makeText(this@MainActivity,getString(R.string.msg_hob), Toast.LENGTH_SHORT).show()
 
                 val borncity = placeBirthSpinner.selectedItem.toString()
                 val born_date = borndate
@@ -80,7 +96,22 @@ class MainActivity : Activity() {
                 if(born_date.isEmpty())
                     Toast.makeText(this@MainActivity,getString(R.string.msg_date), Toast.LENGTH_SHORT).show()
 
-                infotextView2.text = getString(R.string.info, name, email, password, confirmpassword, genre, hobbies, borncity, born_date)
+                if (nameEditText.text.toString().isNotEmpty() && emailEditText.text.toString().isNotEmpty() &&
+                    passwordEditText.text.toString().isNotEmpty() && confirmPasswordEditText.text.toString().isNotEmpty() && (paintCheckBox.isChecked ||
+                            sportCheckBox2.isChecked || readCheckBox3.isChecked || seriesCheckBox4.isChecked) && bornDateChanged && (password==confirmpassword))
+                {
+                    infotextView2.text = getString(
+                        R.string.info,
+                        name,
+                        email,
+                        password,
+                        confirmpassword,
+                        genre,
+                        hobbies,
+                        borncity,
+                        born_date
+                    )
+                }
             }
         }
     }
