@@ -1,12 +1,12 @@
-package com.example.practica1_interfazusuario2
+package com.example.practica1_interfazusuario2.ui.main
 
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.Toast
+import com.example.practica1_interfazusuario2.R
 import com.example.practica1_interfazusuario2.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
-import java.time.Year
 import java.util.*
 
 class MainActivity : Activity() {
