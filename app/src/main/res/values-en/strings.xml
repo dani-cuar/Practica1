@@ -26,7 +26,10 @@
     <string name="msg_date">Type your birthday</string>
     <string name="msg_hob">Choose your hobbies</string>
     <string name="info">Name: %s\nEmail: %s\nPassword: %s\nConfirm password: %s\nGenre: %s\nHobbies: %s\nCity of birth: %s\nBirthday: %s\n </string>
+    <string name="register_image">register_image</string>
+    <string name="clean_button">Clean</string>
     <string-array name= "cities_list">
+        <item>Select</item>
         <item>Medellín</item>
         <item>Bogotá</item>
         <item>Cali</item>
