@@ -17,14 +17,6 @@ class MainActivity : AppCompatActivity() {
     private var borndate = ""
     private var bornDateChanged = false
     private var calendar = Calendar.getInstance()
-    private var hobbie = ""
-    private var name = ""
-    private var email = ""
-    private var password = ""
-    private var confirmpassword = ""
-    private var genre = ""
-    private var borncity = ""
-    private var born_date = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,14 +33,9 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-        mainViewModel.listHob.observe(this) { lista -> hobbie = lista }
-        mainViewModel.name__.observe(this){ names -> name = names}
-        mainViewModel.email__.observe(this){emails -> email = emails}
-        mainViewModel.password__.observe(this){pass -> password = pass}
-        mainViewModel.genre__.observe(this){gen -> genre = gen}
-        mainViewModel.confirmpassword__.observe(this){confirm -> confirmpassword = confirm }
-        mainViewModel.borncity__.observe(this){obs -> borncity = obs}
-        mainViewModel.borndate__.observe(this){born -> born_date = born}
+        mainViewModel.totalInfo__.observe(this){
+            mainBinding.infotextView2.text = it
+        }
 
         val dateSetListener = DatePickerDialog.OnDateSetListener {_, year, month, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
@@ -84,9 +71,6 @@ class MainActivity : AppCompatActivity() {
                 seriesCheckBox4.isChecked = false
                 sportCheckBox2.isChecked = false
                 readCheckBox3.isChecked = false
-                infotextView2.text = getString(
-                    R.string.info, name, email, password, confirmpassword, genre, hobbie, borncity, born_date
-                )
             }
 
             saveButton.setOnClickListener {
@@ -100,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 if(confirmPasswordEditText.text.toString().isEmpty())
                     Toast.makeText(this@MainActivity,getString(R.string.msg_confirm),Toast.LENGTH_SHORT).show()
 
+
                 mainViewModel.obtainname(nameEditText.text.toString())
                 mainViewModel.obtainemail(emailEditText.text.toString())
                 mainViewModel.obtainpassword(passwordEditText.text.toString())
@@ -108,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                 if(femaleRadioButton3.isChecked) mainViewModel.obtaingenre(femaleRadioButton3.text.toString())
                 else mainViewModel.obtaingenre1(maleRadioButton4.text.toString())
 
-                if(mainViewModel.passcomprobation(password,confirmpassword))
+                if(mainViewModel.passcomprobation())
                     Toast.makeText(this@MainActivity,getString(R.string.msg_bad), Toast.LENGTH_SHORT).show()
 
                 if(paintCheckBox.isChecked) mainViewModel.checktrue("Dibujar")
@@ -116,19 +101,14 @@ class MainActivity : AppCompatActivity() {
                 if(readCheckBox3.isChecked) mainViewModel.checktrue("Leer")
                 if(seriesCheckBox4.isChecked) mainViewModel.checktrue("Series")
 
-                val borncity = placeBirthSpinner.selectedItem.toString()
+                mainViewModel.obtainCity(placeBirthSpinner.selectedItem.toString())
                 mainViewModel.obtainborn(borndate)
 
-                if(born_date.isEmpty())
-                    Toast.makeText(this@MainActivity,getString(R.string.msg_date), Toast.LENGTH_SHORT).show()
-
-                if (nameEditText.text.toString().isNotEmpty() && emailEditText.text.toString().isNotEmpty() &&
-                    passwordEditText.text.toString().isNotEmpty() && confirmPasswordEditText.text.toString().isNotEmpty() && (paintCheckBox.isChecked ||
-                            sportCheckBox2.isChecked || readCheckBox3.isChecked || seriesCheckBox4.isChecked) && bornDateChanged && (password==confirmpassword))
-                {
-                    infotextView2.text = getString(
-                        R.string.info, name, email, password, confirmpassword, genre, hobbie, borncity, born_date)
+                if(mainViewModel.verifyFields(nameEditText.text.toString().isNotEmpty(), emailEditText.text.toString().isNotEmpty(),
+                    passwordEditText.text.toString().isNotEmpty(), confirmPasswordEditText.text.toString().isNotEmpty())) {
+                    mainViewModel.showInfo()
                 }
+                else Toast.makeText(this@MainActivity,getString(R.string.msg_complete),Toast.LENGTH_SHORT).show()
             }
         }
     }

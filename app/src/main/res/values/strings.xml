@@ -27,6 +27,7 @@
     <string name="info">Nombre: %s\nEmail: %s\nContraseña: %s\nConfirmar contraseña: %s\nGenero: %s\nPasatiempo: %s\nCiudad de nacimiento: %s\nFecha de nacimiento: %s\n </string>
     <string name="register_image">register_image</string>
     <string name="clean_button">Limpiar</string>
+    <string name="msg_complete">Llene los datos que faltan</string>
     <string-array name="cities_list">
         <item>Seleccione</item>
         <item>Medellín</item>
